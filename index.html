@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miguel Ángel & Carolina — Renovación de Votos (5 Años)</title>
+
+  <!-- SEO & Open Graph para WhatsApp y Redes Sociales -->
+  <meta name="description"
+    content="¡Te invitamos a celebrar nuestras Bodas de Madera! Renovación de votos matrimoniales de Miguel Ángel & Carolina. 17 de Octubre de 2026.">
+  <meta property="og:title" content="Miguel Ángel & Carolina — ¡Nos Casamos de Nuevo! (5 Años)">
+  <meta property="og:description"
+    content="Acompáñanos a celebrar nuestra renovación de votos y 5 años de matrimonio. Haz clic aquí para ver todos los detalles.">
+  <meta property="og:image" content="assets/images/hero.jpg">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#221813">
+
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       REPRODUCTOR DE AUDIO FLOTANTE
+       ========================================================================== -->
+  <div class="floating-audio-container">
+    <button id="audio-toggle" class="floating-audio-btn" type="button" title="Reproducir / Pausar Música"
+      aria-label="Control de música">
+      <div class="soundbars">
+        <span class="soundbar"></span>
+        <span class="soundbar"></span>
+        <span class="soundbar"></span>
+        <span class="soundbar"></span>
+      </div>
+    </button>
+  </div>
+
+  <!-- ==========================================================================
+       CONTENEDOR PRINCIPAL DE LA INVITACIÓN
+       ========================================================================== -->
+  <main class="page-wrapper">
+
+    <!-- HERO / PORTADA -->
+    <header class="hero-section">
+      <div class="hero-image-wrap">
+        <img src="assets/images/portada.jpeg" alt="Miguel Ángel y Carolina" class="hero-image">
+        <div class="hero-gradient-overlay"></div>
+      </div>
+
+      <div class="hero-content">
+        <span class="hero-top-badge">Te Invitamos a Celebrar</span>
+        <h1 class="hero-title-main">
+          Miguel Ángel
+          <span class="hero-ampersand">&</span>
+          Carolina
+        </h1>
+
+        <div class="hero-edition-wood">
+          <span class="hero-wood-tag">Bodas de Madera</span>
+          <span class="hero-wood-pill">5 Años</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- FRASE EMOTIVA -->
+    <section class="quote-section reveal">
+      <div class="quote-card">
+        <p class="quote-text">
+          "Cinco años caminando juntos, construyendo sueños, superando retos y celebrando cada latido de nuestras vidas.
+          Hoy decidimos renovar nuestra promesa de amarnos por siempre."
+        </p>
+        <span class="quote-author">— Miguel Ángel & Carolina</span>
+      </div>
+    </section>
+
+    <div class="section-divider">
+      <span class="divider-line"></span>
+      <div class="divider-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+      </div>
+      <span class="divider-line"></span>
+    </div>
+
+    <!-- SECCIÓN FECHA & CUENTA REGRESIVA -->
+    <section class="countdown-section reveal" id="fecha">
+      <div class="section-header">
+        <span class="section-tag">El Gran Día</span>
+        <h2 class="section-title">Nuestra Cita de Amor</h2>
+      </div>
+
+      <div class="date-hero-card">
+        <p class="date-hero-dayname">Sábado</p>
+        <p class="date-hero-number">17</p>
+        <p class="date-hero-monthyear">Octubre · 2026</p>
+      </div>
+
+      <!-- Reloj Regresivo en Vivo -->
+      <div class="countdown-grid">
+        <div class="countdown-box">
+          <span class="countdown-num" id="count-days">00</span>
+          <span class="countdown-label">Días</span>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-num" id="count-hours">00</span>
+          <span class="countdown-label">Horas</span>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-num" id="count-mins">00</span>
+          <span class="countdown-label">Min.</span>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-num" id="count-secs">00</span>
+          <span class="countdown-label">Seg.</span>
+        </div>
+      </div>
+
+      <!-- Botón Agendar en Google Calendar -->
+      <a id="btn-calendar" class="btn-calendar" href="#" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z" />
+        </svg>
+        <span>Agendar en Google Calendar</span>
+      </a>
+    </section>
+
+    <!-- BENDICIÓN DE DIOS -->
+    <section class="family-section reveal">
+      <div class="blessing-card">
+        <div class="blessing-icon-wrap">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+          </svg>
+        </div>
+        <span class="section-tag">Nuestra Fe</span>
+        <h2 class="section-title">Con la Bendición de Dios</h2>
+        <p class="blessing-verse">
+          "El amor es paciente, es bondadoso. Todo lo disculpa, todo lo cree, todo lo espera, todo lo soporta. El amor
+          jamás se extingue."
+        </p>
+        <p class="blessing-desc">
+          Damos gracias a Dios por habernos bendecido con estos primeros 5 años de matrimonio y por iluminar el camino
+          que seguimos recorriendo juntos.
+        </p>
+      </div>
+    </section>
+
+    <!-- UBICACIONES INTERACTIVAS (Google Maps) -->
+    <section class="locations-section reveal" id="ubicacion">
+      <div class="section-header">
+        <span class="section-tag">Dónde y Cuándo</span>
+        <h2 class="section-title">Ubicaciones</h2>
+        <p class="section-subtitle">Acompáñanos a festejar</p>
+      </div>
+
+      <div class="venue-preview-img-wrap">
+        <img src="assets/images/venue.jpg" alt="Lugar de la celebración" class="venue-preview-img">
+      </div>
+
+      <!-- Tarjeta Ceremonia: Iglesia de Cristo Rey -->
+      <div class="location-card">
+        <div class="location-icon-wrap">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+          </svg>
+        </div>
+        <span class="location-type">Ceremonia Religiosa</span>
+        <h3 class="location-name">Iglesia de Cristo Rey</h3>
+        <div class="location-time-badge">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+          </svg>
+          <span>17:00 Hrs.</span>
+        </div>
+        <p class="location-address">Cochabamba, Bolivia.</p>
+
+        <!-- Enlace exacto proporcionado por el usuario a Google Maps -->
+        <a class="btn-maps" href="https://maps.app.goo.gl/bLKbjFoZJ7RCfMbm6" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+          </svg>
+          <span>Ver Ubicación en Google Maps</span>
+        </a>
+      </div>
+
+      <!-- Tarjeta Recepción -->
+      <div class="location-card">
+        <div class="location-icon-wrap">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z" />
+          </svg>
+        </div>
+        <span class="location-type">Recepción & Fiesta de Aniversario</span>
+        <h3 class="location-name">Salón & Jardines de Eventos</h3>
+        <div class="location-time-badge">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+          </svg>
+          <span>18:30 Hrs.</span>
+        </div>
+        <p class="location-address">Gran Salón y Jardín Rústico para la celebración.</p>
+
+        <!-- Enlace a Google Maps -->
+        <a class="btn-maps" href="https://maps.app.goo.gl/bLKbjFoZJ7RCfMbm6" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+          </svg>
+          <span>Ver Ubicación en Google Maps</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ITINERARIO -->
+    <section class="timeline-section reveal">
+      <div class="section-header">
+        <span class="section-tag">Cronograma</span>
+        <h2 class="section-title">Itinerario de la Tarde</h2>
+      </div>
+
+      <div class="timeline-container">
+        <!-- Evento 1 -->
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+          </div>
+          <div class="timeline-content">
+            <span class="timeline-time">17:00 Hrs.</span>
+            <h4 class="timeline-event-title">Renovación de Votos</h4>
+            <p class="timeline-desc">Ceremonia religiosa en la Iglesia de Cristo Rey.</p>
+          </div>
+        </div>
+
+        <!-- Evento 2 -->
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z" />
+            </svg>
+          </div>
+          <div class="timeline-content">
+            <span class="timeline-time">18:30 Hrs.</span>
+            <h4 class="timeline-event-title">Recepción & Cóctel</h4>
+            <p class="timeline-desc">Bienvenida en el salón con música y cócteles.</p>
+          </div>
+        </div>
+
+        <!-- Evento 3 -->
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+            </svg>
+          </div>
+          <div class="timeline-content">
+            <span class="timeline-time">19:30 Hrs.</span>
+            <h4 class="timeline-event-title">Cena & Brindis de Honor</h4>
+            <p class="timeline-desc">Celebración gastronómica y palabras de aniversario.</p>
+          </div>
+        </div>
+
+        <!-- Evento 4 -->
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+            </svg>
+          </div>
+          <div class="timeline-content">
+            <span class="timeline-time">20:30 Hrs.</span>
+            <h4 class="timeline-event-title">Vals de los 5 Años</h4>
+            <p class="timeline-desc">Nuestro baile especial de bodas de madera.</p>
+          </div>
+        </div>
+
+        <!-- Evento 5 -->
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2l2.4 7.2h7.6l-6.1 4.5 2.3 7.3-6.2-4.6-6.2 4.6 2.3-7.3-6.1-4.5h7.6z" />
+            </svg>
+          </div>
+          <div class="timeline-content">
+            <span class="timeline-time">21:00 Hrs.</span>
+            <h4 class="timeline-event-title">¡Fiesta de Celebración!</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MESA DE REGALOS / TRANSFERENCIA -->
+    <section class="gifts-section reveal">
+      <div class="section-header">
+        <span class="section-tag">Detalles</span>
+        <h2 class="section-title">Mesa de Regalos</h2>
+        <p class="section-subtitle">Tu cariño es lo más valioso</p>
+      </div>
+
+      <!-- Lluvia de Sobres -->
+      <div class="gift-card">
+        <div class="gift-icon-wrap">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+          </svg>
+        </div>
+        <h3 class="gift-title">Lluvia de Sobres</h3>
+        <p class="gift-text">
+          Su presencia y bendición en nuestras vidas es nuestro mayor regalo. Si desean hacernos un presente, contaremos
+          con un buzón el día del evento para la tradicional lluvia de sobres.
+        </p>
+      </div>
+
+      <!-- Transferencia Bancaria -->
+      <div class="gift-card">
+        <div class="gift-icon-wrap">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 10v7h3v-7H4zm6 0v7h3v-7h-3zM2 22h19v-3H2v3zm14-12v7h3v-7h-3zm-4.5-9L2 6v2h19V6l-9.5-5z" />
+          </svg>
+        </div>
+        <h3 class="gift-title">Transferencia Bancaria</h3>
+        <p class="gift-text">Si prefieren realizar su muestra de cariño vía transferencia, ponemos a su disposición
+          nuestros datos:</p>
+
+        <div class="bank-details-box">
+          <div class="bank-row">
+            <span class="bank-label">Banco:</span>
+            <span class="bank-value">Banco Unión</span>
+          </div>
+          <div class="bank-row">
+            <span class="bank-label">Titulares:</span>
+            <span class="bank-value">Miguel Ángel & Carolina</span>
+          </div>
+          <div class="bank-row">
+            <span class="bank-label">Cuenta:</span>
+            <span class="bank-value">10000045892314</span>
+          </div>
+          <div class="bank-row">
+            <span class="bank-label">Alias:</span>
+            <span class="bank-value">MIGUEL.Y.CAROLINA.5</span>
+          </div>
+        </div>
+
+        <button id="btn-copy-bank" class="btn-copy-bank" type="button">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+          </svg>
+          <span>Copiar Datos Bancarios</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- GALERÍA DE RECUERDOS (5 Años - MOSAICO) -->
+    <section class="gallery-section reveal">
+      <div class="section-header">
+        <span class="section-tag">Nuestra Trayectoria</span>
+        <h2 class="section-title">5 Años de Amor</h2>
+        <p class="section-subtitle">Memorias inolvidables</p>
+      </div>
+
+      <div class="gallery-mosaic">
+        <div class="mosaic-item mosaic-item-large">
+          <img src="assets/images/hero.jpg" alt="Miguel Ángel y Carolina aniversario" loading="lazy">
+          <div class="gallery-caption">Un amor que florece día a día</div>
+        </div>
+        <div class="mosaic-item">
+          <img src="assets/images/moment.jpg" alt="Risas y felicidad" loading="lazy">
+          <div class="gallery-caption">Risas & complicidad</div>
+        </div>
+        <div class="mosaic-item">
+          <img src="assets/images/rings.jpg" alt="Alianzas y manos entrelazadas" loading="lazy">
+          <div class="gallery-caption">Bodas de Madera</div>
+        </div>
+        <div class="mosaic-item mosaic-item-wide">
+          <img src="assets/images/venue.jpg" alt="Locación y cena nocturna" loading="lazy">
+          <div class="gallery-caption">Noche mágica bajo las luces</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ÁLBUM COMPARTIDO EN GOOGLE FOTOS -->
+    <section class="photos-upload-section reveal">
+      <div class="upload-card">
+        <div class="upload-icon-circle">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+          </svg>
+        </div>
+        <span class="section-tag">Recuerdos Compartidos</span>
+        <h3 class="location-name">Álbum de Google Fotos</h3>
+        <div class="hashtag-pill">#MiguelYCarito5Años</div>
+        <p class="gift-text">
+          ¡Queremos revivir cada instante a través de sus ojos! Hemos creado un álbum compartido en Google Fotos para
+          que todos puedan subir y ver las fotos y videos del festejo.
+        </p>
+        <a id="btn-google-photos" class="btn-google-photos" href="https://photos.app.goo.gl/" target="_blank"
+          rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z" />
+          </svg>
+          <span>Subir Fotos al Álbum de Google</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- CONFIRMACIÓN DE ASISTENCIA (RSVP POR WHATSAPP - SOLO CAROLINA) -->
+    <section class="rsvp-section reveal" id="confirmar">
+      <div class="rsvp-card">
+        <span class="section-tag">Confirmación</span>
+        <h2 class="section-title">RSVP</h2>
+        <p class="section-subtitle">¿Nos acompañas?</p>
+
+        <p class="gift-text">
+          Tu presencia es fundamental para nosotros. Por favor, confirma tu asistencia directamente con la novia a
+          través de WhatsApp.
+        </p>
+
+        <span class="rsvp-deadline">Confirmar antes del 25 de Septiembre de 2026</span>
+
+        <div class="rsvp-buttons-wrap">
+          <!-- Confirmación exclusiva a Carolina (+591 70395505) -->
+          <a id="btn-rsvp-carolina" class="btn-whatsapp-rsvp"
+            href="https://api.whatsapp.com/send?phone=59170395505&text=%C2%A1Hola%20Carolina!%20Confirmo%20con%20mucha%20alegr%C3%ADa%20mi%20asistencia%20a%20su%20Renovaci%C3%B3n%20de%20Votos%20(Bodas%20de%20Madera).%20%C2%A1Nos%20vemos%20el%2017%20de%20Octubre!%20%F0%9F%A5%82%E2%9C%A8"
+            target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.79 14.07c-.24.68-1.4 1.29-1.92 1.34-.51.05-1.18.23-3.87-.87-2.94-1.2-4.83-4.22-4.98-4.41-.14-.2-1.18-1.57-1.18-2.99 0-1.42.74-2.12 1-2.41.26-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.65.49.24.58.82 2 .89 2.15.07.15.12.32.02.51-.1.2-.15.32-.3.49-.15.18-.31.4-.44.54-.15.15-.31.31-.13.61.17.3 1.05 1.72 2.32 2.85 1.63 1.45 3.01 1.9 3.44 2.11.43.22.68.18.93-.11.25-.29 1.08-1.26 1.37-1.69.29-.44.58-.36.98-.22.4.15 2.53 1.19 2.96 1.41.44.22.73.33.84.51.11.18.11 1.05-.13 1.73z" />
+            </svg>
+            <span>Confirmar Asistencia por WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER FINAL -->
+    <footer class="footer-section">
+      <div class="footer-monogram">M & C</div>
+      <p class="footer-thanks">"Gracias por ser parte de nuestra historia y celebrar con nosotros estos 5 años
+        inolvidables."</p>
+      <p class="footer-edition">17 · OCTUBRE · 2026 — BODAS DE MADERA</p>
+    </footer>
+
+  </main>
+
+  <!-- NOTIFICACIÓN TOAST -->
+  <div id="toast-notice" class="toast-notice">¡Datos bancarios copiados al portapapeles!</div>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+</body>
+
+</html>
