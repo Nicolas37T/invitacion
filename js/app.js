@@ -1,6 +1,6 @@
 /**
  * INVITACIÓN DIGITAL LUXURY — MIGUEL ÁNGEL & CAROLINA
- * Lógica interactiva: Música, Countdown, Calendario, RSVP y URL Params
+ * Lógica interactiva: Música, Countdown, Calendario, RSVP, URL Params y Carrusel
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCopyBank();
   initRSVPWhatsApp();
   initScrollReveal();
+  initGalleryCarousel(); // <-- Se añade la inicialización del carrusel aquí
 });
 
 /* ==========================================================================
@@ -39,12 +40,10 @@ function initMusicController() {
 function startMusic() {
   const audioToggle = document.getElementById('audio-toggle');
 
-  // Intentar primero reproducir archivo mp3 si existe en assets/audio/cancion.mp3
   audioEl.play().then(() => {
     isAudioPlaying = true;
     if (audioToggle) audioToggle.classList.add('playing');
   }).catch(() => {
-    // Si no hay archivo mp3 local cargado, usamos el sintetizador romántico Web Audio API
     startAmbientHarpGenerator();
     isAudioPlaying = true;
     if (audioToggle) audioToggle.classList.add('playing');
@@ -59,10 +58,6 @@ function pauseMusic() {
   if (audioToggle) audioToggle.classList.remove('playing');
 }
 
-/**
- * Sintetizador romántico nativo con Web Audio API
- * Toca un arpegio suave y cálido de piano/arpa acústica en Mi bemol mayor.
- */
 function startAmbientHarpGenerator() {
   if (ambientMusicInterval) return;
   
@@ -75,12 +70,11 @@ function startAmbientHarpGenerator() {
       audioCtx.resume();
     }
 
-    // Progresión romántica cálida (Eb - Bb/D - Cm7 - Ab)
     const melody = [
-      311.13, 392.00, 466.16, 622.25, // Eb4, G4, Bb4, Eb5
-      293.66, 349.23, 466.16, 587.33, // D4, F4, Bb4, D5
-      261.63, 311.13, 392.00, 523.25, // C4, Eb4, G4, C5
-      207.65, 261.63, 311.13, 415.30  // Ab3, C4, Eb4, Ab4
+      311.13, 392.00, 466.16, 622.25,
+      293.66, 349.23, 466.16, 587.33,
+      261.63, 311.13, 392.00, 523.25,
+      207.65, 261.63, 311.13, 415.30
     ];
     let noteIdx = 0;
 
@@ -93,12 +87,10 @@ function startAmbientHarpGenerator() {
       osc.type = 'triangle';
       osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
 
-      // Filtro cálido para sonido de madera / arpa
       filter.type = 'lowpass';
       filter.frequency.setValueAtTime(1400, audioCtx.currentTime);
       filter.frequency.exponentialRampToValueAtTime(300, audioCtx.currentTime + 2.2);
 
-      // Envolvente de volumen suave y cálido
       gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
       gain.gain.linearRampToValueAtTime(0.12, audioCtx.currentTime + 0.08);
       gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 2.8);
@@ -177,7 +169,7 @@ function initCalendarButton() {
   const title = encodeURIComponent('Renovación de Votos: Miguel Ángel & Carolina (5 Años)');
   const details = encodeURIComponent('Celebración de nuestras Bodas de Madera (5 Años de Matrimonio). ¡Acompáñanos a renovar nuestras promesas de amor!');
   const location = encodeURIComponent('Iglesia de Cristo Rey, Cochabamba, Bolivia');
-  const dates = '20261017T210000Z/20261018T070000Z'; // UTC aprox
+  const dates = '20261017T210000Z/20261018T070000Z';
 
   const gCalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}`;
   btnCalendar.href = gCalUrl;
@@ -232,7 +224,7 @@ function initRSVPWhatsApp() {
     guestText = ` de parte de *${guestName.replace(/\+/g, ' ')}*`;
   }
 
-  const phoneCarolina = '59170395505'; // +591 70395505
+  const phoneCarolina = '59170395505';
   const baseMessage = encodeURIComponent(
     `¡Hola Carolina! Confirmo con mucha alegría mi asistencia a su Renovación de Votos (Bodas de Madera)${guestText}. ¡Nos vemos el 17 de Octubre! 🥂✨`
   );
@@ -259,4 +251,100 @@ function initScrollReveal() {
   });
 
   reveals.forEach(el => observer.observe(el));
+}
+
+/* ==========================================================================
+   7. CARRUSEL DE FOTOS AUTOMÁTICO E INTERACTIVO
+   ========================================================================== */
+function initGalleryCarousel() {
+  const track = document.getElementById('carousel-track');
+  const slides = document.querySelectorAll('.carousel-slide');
+  const prevBtn = document.getElementById('carousel-prev');
+  const nextBtn = document.getElementById('carousel-next');
+  const counter = document.getElementById('carousel-counter');
+  const carouselContainer = document.getElementById('gallery-carousel');
+
+  if (!track || slides.length === 0) return;
+
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+  let autoplayTimer = null;
+
+  function updateCarousel() {
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    if (counter) {
+      counter.textContent = `${currentIndex + 1} / ${totalSlides}`;
+    }
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+  }
+
+  function startAutoplay() {
+    clearInterval(autoplayTimer);
+    autoplayTimer = setInterval(nextSlide, 4500);
+  }
+
+  function resetAutoplay() {
+    clearInterval(autoplayTimer);
+    startAutoplay();
+  }
+
+  // Eventos de botones
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      nextSlide();
+      resetAutoplay();
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      prevSlide();
+      resetAutoplay();
+    });
+  }
+
+  // Pausar con el puntero en escritorio
+  if (carouselContainer) {
+    carouselContainer.addEventListener('mouseenter', () => clearInterval(autoplayTimer));
+    carouselContainer.addEventListener('mouseleave', startAutoplay);
+
+    // Deslizamiento con el dedo en celular (Touch Swipe)
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carouselContainer.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      clearInterval(autoplayTimer);
+    }, { passive: true });
+
+    carouselContainer.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].clientX;
+      const diff = touchStartX - touchEndX;
+
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+      startAutoplay();
+    }, { passive: true });
+  }
+
+  startAutoplay();
+  updateCarousel();
 }

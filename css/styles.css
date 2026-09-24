@@ -1320,12 +1320,12 @@ section {
 }
 
 /* ==========================================================================
-   GALERÍA DE FOTOS / ÁLBUM DE ANIVERSARIO
+   GALERÍA DE FOTOS / CARRUSEL LUXURY
    ========================================================================== */
 .gallery-section {
   background: #1c130d;
   color: #fff;
-  padding-bottom: 50px;
+  padding: 44px 18px 50px;
 }
 
 .gallery-section .section-title {
@@ -1336,69 +1336,119 @@ section {
   color: var(--gold-light);
 }
 
-.gallery-mosaic {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-
-.mosaic-item {
+.carousel-wrapper {
   position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-  border: 1.5px solid rgba(223, 186, 115, 0.35);
-  background: #120b07;
-  aspect-ratio: 1 / 1;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.4s ease;
-}
-
-.mosaic-item-large {
-  grid-column: span 2;
-  aspect-ratio: 16 / 11;
-}
-
-.mosaic-item-wide {
-  grid-column: span 2;
-  aspect-ratio: 16 / 10;
-}
-
-.mosaic-item img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  margin-top: 15px;
+}
+
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7);
+  border: 1.5px solid rgba(223, 186, 115, 0.4);
+  background: #140d08;
+  touch-action: pan-y;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.slide-card {
+  position: relative;
+  width: 100%;
+  height: 440px; /* Altura uniforme ideal para celular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #26170e 0%, #120904 100%);
+}
+
+.slide-card img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain; /* Nunca corta rostros ni personas */
   display: block;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.mosaic-item:hover {
-  transform: translateY(-4px);
-  border-color: var(--gold-vibrant);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(223, 186, 115, 0.35);
-}
-
-.mosaic-item:hover img {
-  transform: scale(1.06);
-}
-
-.mosaic-item .gallery-caption {
+.slide-caption {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 12px 14px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+  padding: 18px 14px 14px;
+  background: linear-gradient(to top, rgba(16, 9, 5, 0.95) 0%, rgba(16, 9, 5, 0.6) 65%, transparent 100%);
   font-family: var(--font-serif);
-  font-size: 0.95rem;
-  color: #fff;
+  font-size: 1.1rem;
+  color: var(--gold-light);
   font-style: italic;
   text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
   pointer-events: none;
 }
 
-.mosaic-item-large .gallery-caption,
-.mosaic-item-wide .gallery-caption {
-  font-size: 1.1rem;
+/* Botones Anterior / Siguiente */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(26, 16, 10, 0.85);
+  border: 1.5px solid var(--gold-vibrant);
+  color: var(--gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-btn:hover {
+  background: var(--gold-gradient);
+  color: var(--wood-darkest);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.prev-btn {
+  left: -10px;
+}
+
+.next-btn {
+  right: -10px;
+}
+
+/* Contador de fotos (ej. 1 / 18) */
+.carousel-counter {
+  text-align: center;
+  margin-top: 14px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--gold-vibrant);
 }
 
 /* ==========================================================================
@@ -1633,3 +1683,4 @@ section {
   opacity: 1;
   transform: translateY(0);
 }
+
