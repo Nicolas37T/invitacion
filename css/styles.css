@@ -1641,6 +1641,73 @@ section {
 }
 
 /* ==========================================================================
+   CRÉDITOS & CONTACTO DEL CREADOR (DISCRETO Y ELEGANTE)
+   ========================================================================== */
+.footer-creator {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.creator-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(223, 186, 115, 0.4), transparent);
+  margin-bottom: 4px;
+}
+
+.creator-text {
+  font-size: 0.8rem;
+  color: rgba(229, 212, 192, 0.65);
+  letter-spacing: 0.5px;
+  font-family: var(--font-sans);
+  margin: 0;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.creator-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--gold-light);
+  background: rgba(223, 186, 115, 0.08);
+  border: 1px solid rgba(223, 186, 115, 0.3);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(6px);
+  margin-top: 2px;
+}
+
+.creator-link svg {
+  width: 15px;
+  height: 15px;
+  fill: #25D366;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.creator-link:hover,
+.creator-link:active {
+  background: rgba(223, 186, 115, 0.18);
+  border-color: var(--gold-vibrant);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(223, 186, 115, 0.25);
+}
+
+.creator-link:hover svg {
+  transform: scale(1.15);
+}
+
+/* ==========================================================================
    TOAST NOTIFICATION (Al copiar CBU)
    ========================================================================== */
 .toast-notice {
